@@ -24,7 +24,7 @@ public class Mesto1Test {
         given()
                 .header("Content-type", "application/json") // Передаём Content-type в заголовке для указания типа файла
                 .auth().oauth2(bearerToken) // Передаём токен для аутентификации
-                .body("{\"name\":\"Москва\",\"link\":\"https://code.s3.yandex.net/qa-automation-engineer/java/files/paid-track/sprint1/photoSelenium.jpg\"}") // Формируем тело запроса
+                .body("{\"name\":\"Питер\",\"link\":\"https://code.s3.yandex.net/qa-automation-engineer/java/files/paid-track/sprint1/photoSelenium.jpg\"}") // Формируем тело запроса
                 .post("/api/cards") // Делаем POST-запрос
                 .then().statusCode(201); // Проверяем код ответа
     }
@@ -63,7 +63,7 @@ public class Mesto1Test {
         given()
                 .auth().oauth2(bearerToken) // Передаём токен для аутентификации
                 .delete("/api/cards/{photoId}/likes", photoId) // Делаем DELETE-запрос
-                .then().assertThat().statusCode(200); // Проверяем, что сервер вернул код 200
+                .then().assertThat().statusCode(201); // Проверяем, что сервер вернул код 200
     }
 
 }
